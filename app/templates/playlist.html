@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="UTF-8" />
+    <title>Playlist</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: "Montserrat", sans-serif;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #7fc469;
+      color: #565e6b;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .wrapper {
+      width: 30vw;
+      min-height: 60vh;
+      background: #fff;
+      margin: 15px auto 0;
+    }
+
+    .wrapper .title {
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      border-bottom: 1px solid #ebedec;
+    }
+
+    .wrapper .tabs_wrap {
+      padding: 20px;
+      border-bottom: 1px solid #ebedec;
+    }
+
+    .wrapper .tabs_wrap ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .wrapper .tabs_wrap ul li {
+      width: 135px;
+      text-align: center;
+      background: #e9ecf1;
+      border-right: 1px solid #c1c4c9;
+      padding: 13px 15px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    .wrapper .tabs_wrap ul li:first-child {
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+    }
+
+    .wrapper .tabs_wrap ul li:last-child {
+      border-right: 0px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    .wrapper .tabs_wrap ul li:hover,
+    .wrapper .tabs_wrap ul li.active {
+      background: #7fc469;
+      color: #fff;
+    }
+
+    .wrapper .container .item_wrap {
+      padding: 10px 20px;
+      border-bottom: 1px solid #ebedec;
+      cursor: pointer;
+    }
+
+    .wrapper .container .item_wrap:hover {
+      background: #e9ecf1;
+    }
+
+    .wrapper .container .item {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    .item_buttons {
+      display: flex;
+      justify-content: flex-end;
+      width: 50%;
+    }
+
+    .play,
+    .host,
+    .edit,
+    .view,
+    .disable,
+    .scorecard {
+      margin: 2%;
+      padding: 5%;
+      background-color: #7fc469;
+      color: #fff;
+      box-shadow: rgba(0, 0, 0, 0.3) 0 0 -4px 0 inset;
+      border-radius: 5px;
+    }
+
+    .item_wrap .item .item_left {
+      width: 33.33%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .item_wrap .item_left img {
+      width: 70px;
+      height: 70px;
+      display: block;
+    }
+
+    .item_wrap .item_left .data {
+      margin-left: 20px;
+    }
+
+    .item_wrap .item_left .data .name {
+      font-weight: 600;
+    }
+
+    .item_wrap .item_left .data .ques {
+      color: #7f8b9b;
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    @media screen and (max-width: 576px) {
+      .wrapper {
+        width: 90vw;
+        font-size: 0.8em;
+      }
+      .item {
+        flex-direction: column;
+      }
+      .play,
+      .host,
+      .edit,
+      .view,
+      .disable,
+      .scorecard {
+        margin: 3%;
+        padding: 3%;
+      }
+      .item_wrap .item .item_left {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .item_buttons {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <div class="title">Playlist</div>
+      <div class="container">
+        <ul>
+          <li class="item_wrap all_item">
+            <div class="item">
+              <div class="item_left" style="margin:auto; ">
+                <div class="data">
+                  <p class="name">Party Songs</p>
+                  <p class="ques">35 songs</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="item_wrap all_item">
+            <div class="item">
+              <div class="item_left" style="margin:auto; ">
+                <div class="data">
+                  <p class="name">English Songs</p>
+                  <p class="ques">15 songs</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="item_wrap all_item">
+            <div class="item">
+              <div class="item_left" style="margin:auto; ">
+                <div class="data">
+                  <p class="name">Gym Songs</p>
+                  <p class="ques">8 songs</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="item_wrap all_item">
+            <div class="item">
+              <div class="item_left" style="margin:auto; ">
+                <div class="data">
+                  <p class="name">Hindi Songs</p>
+                  <p class="ques">20 songs</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

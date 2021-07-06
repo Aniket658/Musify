@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Mood Predictor</title>
+</head>
+<style>
+    .header {
+        margin: 0 auto;
+        margin-left: 362px;
+        margin-top: 31px;
+    }
+
+    .h1,
+    h1 {
+        margin-left: 106px;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+
+    .card-body {
+        margin-top: -16px;
+        text-align: center;
+    }
+
+    .music {
+        margin-left: 357px;
+    }
+
+    #search {
+        width: 50%;
+    }
+
+    .fa,
+    .fas {
+        font-weight: 900;
+        width: 26px;
+        font-size: 30px;
+        color: #23c13e;
+    }
+
+    span {
+        margin-left: 186px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .wrapper {
+        width: 60vw;
+        min-height: 60vh;
+        background: #fff;
+        margin: 15px auto 0;
+    }
+
+    .wrapper .title {
+        padding: 30px 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        border-bottom: 1px solid #ebedec;
+    }
+
+    .wrapper .tabs_wrap {
+        padding: 20px;
+        border-bottom: 1px solid #ebedec;
+    }
+
+    .wrapper .tabs_wrap ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .wrapper .tabs_wrap ul li {
+        width: 135px;
+        text-align: center;
+        background: #e9ecf1;
+        border-right: 1px solid #c1c4c9;
+        padding: 13px 15px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    .wrapper .tabs_wrap ul li:first-child {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .wrapper .tabs_wrap ul li:last-child {
+        border-right: 0px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .wrapper .tabs_wrap ul li:hover,
+    .wrapper .tabs_wrap ul li.active {
+        background: #7fc469;
+        color: #fff;
+    }
+
+    .wrapper .container .item_wrap {
+        padding: 10px 20px;
+        border-bottom: 1px solid #ebedec;
+        cursor: pointer;
+    }
+
+    .wrapper .container .item_wrap:hover {
+        background: #e9ecf1;
+    }
+
+    .wrapper .container .item {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .item_buttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+    }
+
+    .play,
+    .host,
+    .edit,
+    .view,
+    .disable,
+    .scorecard {
+        margin: 2%;
+        padding: 5%;
+        background-color: #7fc469;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 0 -4px 0 inset;
+        border-radius: 5px;
+    }
+
+    .item_wrap .item .item_left {
+        width: 33.33%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .item_wrap .item_left img {
+        width: 70px;
+        height: 70px;
+        display: block;
+    }
+
+    .item_wrap .item_left .data {
+        margin-left: 20px;
+    }
+
+    .item_wrap .item_left .data .name {
+        font-weight: 600;
+    }
+
+    .item_wrap .item_left .data .ques {
+        color: #7f8b9b;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    @media screen and (max-width: 576px) {
+        .wrapper {
+            width: 90vw;
+            font-size: 0.8em;
+        }
+
+        .item {
+            flex-direction: column;
+        }
+
+        .play,
+        .host,
+        .edit,
+        .view,
+        .disable,
+        .scorecard {
+            margin: 3%;
+            padding: 3%;
+        }
+
+        .item_wrap .item .item_left {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .item_buttons {
+            width: 100%;
+        }
+    }
+
+    ul{
+        margin-left: -215px;
+        margin-right: 246px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+</style>
+
+<body>
+    <div class="container header">
+        <div class="voice" style="display: none;">
+            <h3>Mood Prediction using Voice</h3>
+            <span><i class="fas fa-microphone speak"></i>&nbsp;</span>
+            <p id="msgVoice">Speak a sentence to get song recommendation based on your mood</p>
+        </div>
+
+        <div class="video">
+            <h3>Mood Prediction using Video</h3>
+            <span><i class="fa fa-video-camera face" aria-none="true"></i>&nbsp;</span>
+            <p id="msgVideo">Show your Emotion to get song recommendation based on your mood</p> 
+        </div>
+        <button class="btn btn-success" id="switch">Switch to Voice</button>
+    </div>
+    <br><br>
+
+    <div class="container music my-3">
+        <h3 class="my-3">You look Sad - So we recommend you following songs</h3>
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="item_wrap all_item">
+                        <div class="item">
+                            <div class="item_left">
+                                <div class="img">
+                                    <img src="https://c.saavncdn.com/693/Kesari-Hindi-2019-20200605001133-500x500.jpg"
+                                        alt="" />
+                                </div>
+                                <div class="data">
+                                    <p class="name">Teri Mitti</p>
+                                    <p class="ques">Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div class="item_buttons">
+                                <span type="button" class="play">Play</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item_wrap all_item">
+                        <div class="item">
+                            <div class="item_left">
+                                <div class="img">
+                                    <img src="https://c.saavncdn.com/248/Evolve-English-2017-20180716230950-500x500.jpg"
+                                        alt="" />
+                                </div>
+                                <div class="data">
+                                    <p class="name">Believer</p>
+                                    <p class="ques">Imagine Dragon</p>
+                                </div>
+                            </div>
+                            <div class="item_buttons">
+                                <span type="button" class="play">Play</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item_wrap all_item">
+                        <div class="item">
+                            <div class="item_left">
+                                <div class="img">
+                                    <img src="https://c.saavncdn.com/517/Ala-Vaikunthapurramuloo-Telugu-2019-20200116144338-500x500.jpg"
+                                        alt="" />
+                                </div>
+                                <div class="data">
+                                    <p class="name">Butta Bomba</p>
+                                    <p class="ques">Armaan Malik</p>
+                                </div>
+                            </div>
+                            <div class="item_buttons">
+                                <span type="button" class="play">Play</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item_wrap all_item">
+                        <div class="item">
+                            <div class="item_left">
+                                <div class="img">
+                                    <img src="https://c.saavncdn.com/580/Despacito-Latin-2017-500x500.jpg" alt="" />
+                                </div>
+                                <div class="data">
+                                    <p class="name">Despacito</p>
+                                    <p class="ques">Luis Fonsi</p>
+                                </div>
+                            </div>
+                            <div class="item_buttons">
+                                <span type="button" class="play">Play</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    const s = document.getElementById("switch");
+    const face = document.getElementsByClassName("face")[0];
+    const speak = document.getElementsByClassName("speak")[0];
+    const msgVideo = document.getElementById("msgVideo")
+    s.addEventListener("click", function (e) {
+        video = document.getElementsByClassName("video")[0];
+        voice = document.getElementsByClassName("voice")[0];
+        if (voice.style.display == "none") {
+            voice.style.display = "block";
+            video.style.display = "none";
+            s.innerHTML = "Switch to Video";
+        }
+        else {
+            video.style.display = "block";
+            voice.style.display = "none";
+            s.innerHTML = "Switch to Voice";
+        }
+    });
+
+    face.addEventListener("click", function(e){
+        msgVideo.innerHTML = "A new window has opened to the side, Press 'q' to Quit";
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                msgVideo.innerHTML = "Show your Emotion to get song recommendation based on your mood";
+            }
+        };
+        xhttp.open("GET", "/mood/facerecog", true);
+        xhttp.send();
+    });
+
+    speak.addEventListener("click", function(e){
+        msgVoice.innerHTML = "Listening......";
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                msgVoice.innerHTML = "Speak a sentence to get song recommendation based on your mood";
+            }
+        };
+        xhttp.open("GET", "/mood/voicerecog", true);
+        xhttp.send();
+    });
+</script>
+
+</html>

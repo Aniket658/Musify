@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Home Page</title>
+  </head>
+  <style>
+    .header {
+      margin: 0 auto;
+      margin-left: 362px;
+      margin-top: 31px;
+    }
+    .h1,
+    h1 {
+      margin-left: 106px;
+    }
+    .card-img-top {
+      height: 200px;
+    }
+    .card-body {
+      margin-top: -16px;
+      text-align: center;
+    }
+    .music {
+      margin-left: 157px;
+    }
+    #search {
+      width: 50%;
+    }
+    .fa,
+    .fas {
+      font-weight: 900;
+      width: 26px;
+      font-size: 30px;
+      color: #23c13e;
+    }
+  </style>
+
+  <body>
+    <div class="container header">
+      <h1>Welcome to Musify!</h1>
+      <form class="form-inline my-2 my-lg-0" method="post" action="/playsong">
+        {% csrf_token %}
+        <input
+          class="form-control mr-lg-2"
+          type="search"
+          placeholder="Search for songs here...."
+          id="search"
+          name="query"
+          aria-label="Search"
+        /><span><i class="fas fa-microphone"></i>&nbsp;</span>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+    <div class="container music my-3">
+      <h3 class="my-3">Popular Songs</h3>
+      <div class="row my-3">
+        <div class="card" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/333/Satyameva-Jayate-Hindi-2018-20180801-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Dilbar</h5>
+            <a href="/playsong?query=Dilbar" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/248/Evolve-English-2017-20180716230950-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Believer</h5>
+            <a href="/playsong?query=Believer" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/962/Tumhari-Sulu-Hindi-2017-20171104121110-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Ban ja rani</h5>
+            <a href="/playsong?query=Ban ja rani" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/693/Kesari-Hindi-2019-20200605001133-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Teri Mitti</h5>
+            <a href="/playsong?query=Teri Mitti" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/580/Despacito-Latin-2017-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Despacito</h5>
+            <a href="/playsong?query=Despacito" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+      </div>
+      <br />
+      <h3 class="my-3">Latest Releases</h3>
+      <div class="row my-3">
+        <div class="card" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/517/Ala-Vaikunthapurramuloo-Telugu-2019-20200116144338-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Butta Bomba</h5>
+            <a href="/playsong?query=Butta Bomba" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/088/Street-Dancer-3D-Hindi-2020-20200225074106-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Garmi</h5>
+            <a href="/playsong?query=Garmi" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/248/Naach-Meri-Rani-Hindi-2020-20201020051001-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Nach meri Rani</h5>
+            <a href="/playsong?query=Nach meri Rani" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/426/Vaaste-Hindi-2019-20190406024538-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Vaaste</h5>
+            <a href="/playsong?query=Vaaste" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        <div class="card mx-3" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="https://c.saavncdn.com/994/Genius-Hindi-2018-20190709185201-500x500.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Tera Fitoor</h5>
+            <a href="/playsong?query=Tera Fitoor" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

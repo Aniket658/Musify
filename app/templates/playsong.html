@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Play Song</title>
+  </head>
+  <style>
+    .header {
+      margin: 0 auto;
+      margin-left: 576px;
+      margin-top: 31px;
+    }
+    .h1,
+    h1 {
+      margin-left: 106px;
+    }
+    .card-img-top {
+      height: 200px;
+    }
+    .card-body {
+      margin-top: -16px;
+      text-align: center;
+    }
+    .music {
+      margin-left: 157px;
+    }
+    #search {
+      width: 50%;
+    }
+    audio {
+      margin-left: -80px;
+    }
+  </style>
+
+  <body>
+    <div class="container header">
+      <div style="width: 12rem">
+        <img class="card-img-top" src="{{song.image}}" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{song.song}}</h5>
+          <audio
+            class="embed-responsive-item"
+            controls="controls"
+            preload="none"
+            name="media"
+          >
+            <source
+              src="{{song.media_url}}"
+              autostart="false"
+              type="audio/mp4"
+            />
+          </audio>
+        </div>
+      </div>
+    </div>
+    {% if extractFeature == "false" %}
+    <div class="container music my-3">
+      <h3 class="my-3">Recommended Songs</h3>
+      <div class="row my-3">
+        {% for r in recom %}
+        <div class="card" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="{{r.img}}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{r.songname}}</h5>
+            <a href="/playsong?query={{r.songname}}" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    <br>
+    <div class="container music my-3">
+      <h3 class="my-3">Songs from - {{aname}}</h3>
+      <div class="row my-3">
+        {% for r in artist %}
+        <div class="card" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="{{r.image}}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{r.song}}</h5>
+            <a href="/playsong?query={{r.song}}" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script>
+    function extract() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "/extract?song={{song.song}}&media={{song.media_url}}", true);
+      xhttp.send();
+    }
+    {% if extractFeature == "true"%}
+      extract()
+    {% endif %}
+  </script>
+</html>
